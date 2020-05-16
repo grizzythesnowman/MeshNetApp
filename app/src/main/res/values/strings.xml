@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MeshNetApp</string>
+
+    <string-array name="roles">
+        <item>Router</item>
+        <item>End Device</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>Online</item>
+        <item>Offline</item>
+    </string-array>
+
+</resources>

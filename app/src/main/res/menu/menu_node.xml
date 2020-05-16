@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/editDevice"
+        android:title="Edit Node" />
+
+    <item
+        android:id="@+id/sendMessage"
+        android:title="Transmit Message" />
+
+    <item
+        android:id="@+id/deleteDevice"
+        android:title="Delete Node" />
+
+</menu>
