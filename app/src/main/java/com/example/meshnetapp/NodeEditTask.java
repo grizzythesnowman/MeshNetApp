@@ -70,7 +70,7 @@ public class NodeEditTask extends AsyncTask<String, String, String>{
 
         try {
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost("http://192.168.2.3/MeshNetWebService/EditNode.php?Id=" + Id);
+            httppost = new HttpPost("http://192.168.2.6/MeshNetWebService/EditNode.php?Id=" + Id);
             httppost.setEntity(new UrlEncodedFormEntity(DeviceInfo));
             response = httpclient.execute(httppost);
 

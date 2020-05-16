@@ -57,7 +57,7 @@ public class NodeGetTask extends AsyncTask<String, String, String>{
 
         try {
             httpclient = new DefaultHttpClient();
-            httpget = new HttpGet("http://192.168.2.3/MeshNetWebService/Node.php?Id=" + Id);
+            httpget = new HttpGet("http://192.168.2.6/MeshNetWebService/Node.php?Id=" + Id);
             response = httpclient.execute(httpget);
 
 
