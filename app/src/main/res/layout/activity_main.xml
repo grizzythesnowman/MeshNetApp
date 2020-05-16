@@ -56,7 +56,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="18dp"
-            android:text="Speed Test"
+            android:text="Transmit Packets"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
             android:textAllCaps="false" />
 
     </LinearLayout>
