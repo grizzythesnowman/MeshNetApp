@@ -11,7 +11,11 @@ public class Node {
 
     public Node(){}
 
-    public Node(String id, String mac, String Name){}
+    public Node(String id, String mac, String name){
+        Id = id;
+        Mac = mac;
+        Name = name;
+    }
 
     public Node(String Id, Context context, Activity activity, String purpose){
         GetNodeInfo(Id, context, activity, purpose);
