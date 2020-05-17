@@ -9,27 +9,63 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
 public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, NodeEditDialog.EditDeviceDialogListener {
-    Node device;
-    TextView Name;
-    TextView IP;
-    TextView Role;
-    TextView Status;
+    Node node;
+    TextView lblId;
+    TextView lblMac;
+    TextView lblName;
+    TextView lblIP;
+    Button btnEdit;
+    Button btnDelete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_node);
 
-        Name = findViewById(R.id.lblName);
-        IP = findViewById(R.id.lblId);
-        Role = findViewById(R.id.lblMac);
-        Status = findViewById(R.id.lblIP);
-        device = new Node(getIntent().getStringExtra("Id"), NodeActivity.this, NodeActivity.this, "info");
+        lblId = findViewById(R.id.lblId);
+        lblMac = findViewById(R.id.lblMac);
+        lblName = findViewById(R.id.lblName);
+        //lblIP = findViewById(R.id.lblIP);
 
+        btnEdit = findViewById(R.id.editNode);
+        btnDelete = findViewById(R.id.deleteNode);
+
+        node = new Node(getIntent().getStringExtra("Id"), NodeActivity.this, NodeActivity.this, "info");
+
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putString("Id", node.Id);
+                args.putString("Mac", node.Mac);
+                args.putString("Name", node.Name);
+
+                NodeEditDialog editDevice = new NodeEditDialog();
+                editDevice.setArguments(args);
+                editDevice.show(getSupportFragmentManager(), "Edit Node");
+            }
+        });
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(NodeActivity.this);
+                builder.setMessage("Are you sure you want to delete this node?")
+                        .setNegativeButton("No", null)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                new NodeDeleteTask(lblId.getText().toString(), NodeActivity.this, NodeActivity.this).execute();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
+        });
     }
 
     public void showMenu(View v){
@@ -42,8 +78,8 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         Bundle args = new Bundle();
-        args.putString("txtId", device.Id);
-        args.putString("txtName", device.Name);
+        args.putString("txtId", node.Id);
+        args.putString("txtName", node.Name);
         switch(menuItem.getItemId()){
             case R.id.editDevice:
                 NodeEditDialog editDevice = new NodeEditDialog();
@@ -62,7 +98,7 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                new NodeDeleteTask(IP.getText().toString(), NodeActivity.this, NodeActivity.this).execute();
+                                new NodeDeleteTask(lblId.getText().toString(), NodeActivity.this, NodeActivity.this).execute();
                             }
                         });
                 AlertDialog alert = builder.create();
@@ -73,25 +109,8 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         }
     }
 
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater(R.menu.menu_node, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
-
-//    public void updateList(Context myContext, Activity myActivity){
-////        GetNodesTask getDevicesTask = new GetNodesTask(myContext, myActivity, this);
-////        getDevicesTask.execute();
-////        Nodes = getDevicesTask.Nodes;
-//        device.GetConnectedDevices(device.txtId, NodeActivity.this, NodeActivity.this, "info");
-//    }
-
     public void updateInfo(Context myContext, Activity myActivity){
-//        GetNodesTask getDevicesTask = new GetNodesTask(myContext, myActivity, this);
-//        getDevicesTask.execute();
-//        Nodes = getDevicesTask.Nodes;
-        device = new Node(device.IP, NodeActivity.this, NodeActivity.this, "info");
-        //device.GetConnectedDevices(device.txtId, NodeActivity.this, NodeActivity.this, "info");
+        node = new Node(node.Id, NodeActivity.this, NodeActivity.this, "info");
     }
 
     @Override
@@ -99,13 +118,4 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         return this;
     }
 
-//    @Override
-//    public NodeActivity onFinishAddConnectionDialog(){
-//        return this;
-//    }
-
-//    @Override
-//    public NodeActivity onFinishSendMessageDialog(){
-//        return this;
-//    }
 }
