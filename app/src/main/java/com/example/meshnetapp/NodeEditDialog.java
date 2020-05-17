@@ -30,9 +30,9 @@ public class NodeEditDialog extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_node_edit_dialog, null);
 
-        NodeId = getArguments().getString("id");
-        NodeMac = getArguments().getString("mac");
-        NodeName = getArguments().getString("name");
+        NodeId = getArguments().getString("Id");
+        NodeMac = getArguments().getString("Mac");
+        NodeName = getArguments().getString("Name");
 
         txtId = view.findViewById(R.id.txtId);
         txtName = view.findViewById(R.id.txtName);

@@ -78,8 +78,9 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         Bundle args = new Bundle();
-        args.putString("txtId", node.Id);
-        args.putString("txtName", node.Name);
+        args.putString("Id", node.Id);
+        args.putString("Mac", node.Mac);
+        args.putString("Name", node.Name);
         switch(menuItem.getItemId()){
             case R.id.editDevice:
                 NodeEditDialog editDevice = new NodeEditDialog();
