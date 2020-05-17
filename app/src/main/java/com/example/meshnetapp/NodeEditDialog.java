@@ -66,7 +66,7 @@ public class NodeEditDialog extends AppCompatDialogFragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         if(Name.getText().toString().equals("")){
-                            Snackbar.make(getActivity().findViewById(R.id.deviceinfo), "Please enter a Name for the device", Snackbar.LENGTH_LONG)
+                            Snackbar.make(getActivity().findViewById(R.id.nodeActivity), "Please enter a Name for the device", Snackbar.LENGTH_LONG)
                                     .setAction("Action", null).show();
                             return;
                         }else{

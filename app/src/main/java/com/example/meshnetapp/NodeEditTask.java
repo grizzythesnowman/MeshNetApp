@@ -89,7 +89,7 @@ public class NodeEditTask extends AsyncTask<String, String, String>{
             myActivity.runOnUiThread(new Runnable(){
                 public void run() {
 
-                    Snackbar.make(myActivity.findViewById(R.id.deviceinfo), JSONResult, Snackbar.LENGTH_LONG)
+                    Snackbar.make(myActivity.findViewById(R.id.nodeActivity), JSONResult, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     //Toast.makeText(myActivity, "Error: " + JSONResult, Toast.LENGTH_LONG).show();
 
