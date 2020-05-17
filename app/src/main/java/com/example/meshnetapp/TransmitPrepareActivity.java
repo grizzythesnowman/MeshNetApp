@@ -16,6 +16,8 @@ public class TransmitPrepareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transmit_prepare);
 
+        Send = findViewById(R.id.btnSend);
+
         Send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(TransmitPrepareActivity.this, TransmitResultActivity.class);
