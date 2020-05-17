@@ -8,21 +8,19 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
 public class NodeEditDialog extends AppCompatDialogFragment {
-    EditText IP;
-    String IPAddress;
-    String DeviceName;
-    EditText Name;
-    Spinner Role;
-    Spinner Status;
+    EditText txtId;
+    EditText txtMac;
+    EditText txtName;
+    String NodeId;
+    String NodeMac;
+    String NodeName;
     NodeActivity Caller;
     private EditDeviceDialogListener listener;
 
@@ -32,25 +30,19 @@ public class NodeEditDialog extends AppCompatDialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.layout_node_edit_dialog, null);
 
-        IPAddress = getArguments().getString("ip");
-        DeviceName = getArguments().getString("name");
-        IP = view.findViewById(R.id.txtIP);
-        Name = view.findViewById(R.id.txtName);
-        Role = view.findViewById(R.id.spnRole);
-        Status = view.findViewById(R.id.spnStatus);
+        NodeId = getArguments().getString("id");
+        NodeMac = getArguments().getString("mac");
+        NodeName = getArguments().getString("name");
 
-        IP.setText(IPAddress);
-        Name.setText(DeviceName);
-        Name.setInputType(InputType.TYPE_CLASS_TEXT);
-        //Id.setInputType(InputType.TYPE_CLASS_NUMBER);
+        txtId = view.findViewById(R.id.txtId);
+        txtName = view.findViewById(R.id.txtName);
+        txtMac = view.findViewById(R.id.txtMac);
 
-        ArrayAdapter<String> rolesAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.roles));
-        rolesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Role.setAdapter(rolesAdapter);
-
-        ArrayAdapter<String> StatusAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.status));
-        StatusAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Status.setAdapter(StatusAdapter);
+        txtId.setText(NodeId);
+        txtMac.setText(NodeMac);
+        txtName.setText(NodeName);
+        txtName.setInputType(InputType.TYPE_CLASS_TEXT);
+        //txtId.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         builder.setView(view);
 
@@ -65,12 +57,12 @@ public class NodeEditDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
-                        if(Name.getText().toString().equals("")){
-                            Snackbar.make(getActivity().findViewById(R.id.nodeActivity), "Please enter a Name for the device", Snackbar.LENGTH_LONG)
+                        if(txtName.getText().toString().equals("")){
+                            Snackbar.make(getActivity().findViewById(R.id.nodeActivity), "Please enter a txtName for the device", Snackbar.LENGTH_LONG)
                                     .setAction("Action", null).show();
                             return;
                         }else{
-                            new NodeEditTask(IPAddress, Name.getText().toString(), Role.getSelectedItem().toString(), Status.getSelectedItem().toString(), getContext(), getActivity(), listener.onFinishEditDeviceDialog()).execute();
+                            new NodeEditTask(NodeId, NodeMac, txtName.getText().toString(), getContext(), getActivity(), listener.onFinishEditDeviceDialog()).execute();
                         }
 
 

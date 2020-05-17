@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity  {
         nodeList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
-                //Toast.makeText(MainActivity.this, "Clicked Id: " + Nodes.get(i).Id ,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Clicked txtId: " + Nodes.get(i).txtId ,Toast.LENGTH_SHORT).show();
                 String Id = Nodes.get(i).Id;
                 Intent intent = new Intent(MainActivity.this, NodeActivity.class);
-                intent.putExtra("Id", Id);
+                intent.putExtra("txtId", Id);
                 startActivityForResult(intent,1);
             }
         });

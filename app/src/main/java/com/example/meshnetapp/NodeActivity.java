@@ -28,7 +28,7 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         IP = findViewById(R.id.lblId);
         Role = findViewById(R.id.lblMac);
         Status = findViewById(R.id.lblIP);
-        device = new Node(getIntent().getStringExtra("Id"), NodeActivity.this, NodeActivity.this, "info");
+        device = new Node(getIntent().getStringExtra("txtId"), NodeActivity.this, NodeActivity.this, "info");
 
     }
 
@@ -42,8 +42,8 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
         Bundle args = new Bundle();
-        args.putString("Id", device.Id);
-        args.putString("Name", device.Name);
+        args.putString("txtId", device.Id);
+        args.putString("txtName", device.Name);
         switch(menuItem.getItemId()){
             case R.id.editDevice:
                 NodeEditDialog editDevice = new NodeEditDialog();
@@ -83,7 +83,7 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 ////        GetNodesTask getDevicesTask = new GetNodesTask(myContext, myActivity, this);
 ////        getDevicesTask.execute();
 ////        Nodes = getDevicesTask.Nodes;
-//        device.GetConnectedDevices(device.Id, NodeActivity.this, NodeActivity.this, "info");
+//        device.GetConnectedDevices(device.txtId, NodeActivity.this, NodeActivity.this, "info");
 //    }
 
     public void updateInfo(Context myContext, Activity myActivity){
@@ -91,7 +91,7 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 //        getDevicesTask.execute();
 //        Nodes = getDevicesTask.Nodes;
         device = new Node(device.IP, NodeActivity.this, NodeActivity.this, "info");
-        //device.GetConnectedDevices(device.Id, NodeActivity.this, NodeActivity.this, "info");
+        //device.GetConnectedDevices(device.txtId, NodeActivity.this, NodeActivity.this, "info");
     }
 
     @Override

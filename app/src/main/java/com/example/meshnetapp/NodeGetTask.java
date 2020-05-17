@@ -118,7 +118,7 @@ public class NodeGetTask extends AsyncTask<String, String, String>{
                             Mac.setText(Nodes.get(0).Mac);
                             Name.setText(Nodes.get(0).Name);
                             IP.setText(Nodes.get(0).IP);
-                            //Toast.makeText(myContext, "Clicked Id: " + Nodes.get(0).Id ,Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(myContext, "Clicked txtId: " + Nodes.get(0).txtId ,Toast.LENGTH_SHORT).show();
                             break;
                         case "path":
                             break;

@@ -127,7 +127,7 @@ public class NodesGetTask extends AsyncTask<String, String, String>{
                             //ArrayList<String> Label = new ArrayList<>();
 
                             for(int i = 0; i < Nodes.size(); i++){
-                                //Label.add(Nodes.get(i).Name + " [" + Nodes.get(i).Id +"]");
+                                //Label.add(Nodes.get(i).txtName + " [" + Nodes.get(i).txtId +"]");
                                 ListFormat.put(Nodes.get(i).Name , Nodes.get(i).Mac);
                             }
 
