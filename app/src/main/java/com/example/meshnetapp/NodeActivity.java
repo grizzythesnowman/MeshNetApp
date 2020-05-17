@@ -53,7 +53,7 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             case R.id.sendMessage:
 //                SendMessageDialog sendMessage = new SendMessageDialog();
 //                sendMessage.setArguments(args);
-//                sendMessage.show(getSupportFragmentManager(), "Send Message");
+//                sendMessage.show(getSupportFragmentManager(), "btnSend Message");
                 return true;
             case R.id.deleteDevice:
                 AlertDialog.Builder builder = new AlertDialog.Builder(NodeActivity.this);

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:clickable="true"
+    android:focusable="true"
     tools:context=".TransmitPrepareActivity"
     android:id="@+id/transmitPrepareActivity">
 
@@ -28,6 +30,8 @@
             android:hint="Sender Node Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:nextFocusForward="@+id/txtReceiver"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:textSize="20dp" />
@@ -37,6 +41,19 @@
             android:hint="Receiver Node Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:nextFocusForward="@+id/txtMessage"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/txtMessage"
+            android:hint="Message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nextFocusForward="@+id/btnSend"
+            android:singleLine="false"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:textSize="20dp" />

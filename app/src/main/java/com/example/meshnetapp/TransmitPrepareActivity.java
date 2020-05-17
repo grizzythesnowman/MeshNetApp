@@ -9,21 +9,28 @@ import android.widget.Button;
 
 public class TransmitPrepareActivity extends AppCompatActivity {
 
-    Button Send;
+    Button btnSend;
+    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transmit_prepare);
 
-        Send = findViewById(R.id.btnSend);
+        btnSend = findViewById(R.id.btnSend);
+        btnBack = findViewById(R.id.btnBack);
 
-        Send.setOnClickListener(new View.OnClickListener() {
+        btnSend.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(TransmitPrepareActivity.this, TransmitResultActivity.class);
                 startActivityForResult(intent,1);
             }
         });
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }
