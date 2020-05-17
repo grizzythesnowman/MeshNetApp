@@ -28,7 +28,7 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         IP = findViewById(R.id.lblId);
         Role = findViewById(R.id.lblMac);
         Status = findViewById(R.id.lblIP);
-        device = new Node(getIntent().getStringExtra("txtId"), NodeActivity.this, NodeActivity.this, "info");
+        device = new Node(getIntent().getStringExtra("Id"), NodeActivity.this, NodeActivity.this, "info");
 
     }
 

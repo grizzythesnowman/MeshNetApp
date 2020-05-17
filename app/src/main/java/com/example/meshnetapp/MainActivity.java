@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity  {
                 //Toast.makeText(MainActivity.this, "Clicked txtId: " + Nodes.get(i).txtId ,Toast.LENGTH_SHORT).show();
                 String Id = Nodes.get(i).Id;
                 Intent intent = new Intent(MainActivity.this, NodeActivity.class);
-                intent.putExtra("txtId", Id);
+                intent.putExtra("Id", Id);
                 startActivityForResult(intent,1);
             }
         });
