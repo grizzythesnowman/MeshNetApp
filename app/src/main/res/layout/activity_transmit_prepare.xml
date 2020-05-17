@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
+    tools:context=".TransmitPrepareActivity"
     android:id="@+id/transmitPrepareActivity">
 
     <LinearLayout
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/txtReceiver"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
 
 
