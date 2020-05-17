@@ -25,18 +25,17 @@ import java.util.List;
 import static android.app.Activity.RESULT_OK;
 
 public class NodeEditTask extends AsyncTask<String, String, String>{
-    String Id, Name, Role, Status;
+    String Id, Mac, Name;
     Context myContext;
     Activity myActivity;
     NodeActivity Caller;
 
-    public NodeEditTask(String id, String name, String role, String status, Context context, Activity activity, NodeActivity caller) {
+    public NodeEditTask(String id, String mac, String name, Context context, Activity activity, NodeActivity caller) {
         myContext = context;
         myActivity = activity;
         Id = id;
+        Mac = mac;
         Name = name;
-        Role = role;
-        Status = status;
         Caller = caller;
     }
 
@@ -63,14 +62,13 @@ public class NodeEditTask extends AsyncTask<String, String, String>{
         final String JSONResult;
         List<NameValuePair> DeviceInfo;
         DeviceInfo = new ArrayList<>(2);
-        DeviceInfo.add(new BasicNameValuePair("ip", Id.trim()));
-        DeviceInfo.add(new BasicNameValuePair("name", Name.trim()));
-        DeviceInfo.add(new BasicNameValuePair("role", Role.trim()));
-        DeviceInfo.add(new BasicNameValuePair("status", Status.trim()));
+        DeviceInfo.add(new BasicNameValuePair("Id", Id.trim()));
+        DeviceInfo.add(new BasicNameValuePair("Mac", Mac.trim()));
+        DeviceInfo.add(new BasicNameValuePair("Name", Name.trim()));
 
         try {
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost("http://192.168.2.6/MeshNetWebService/EditNode.php?Id=" + Id);
+            httppost = new HttpPost("http://192.168.2.6/MeshNetWebService/EditNode.php");
             httppost.setEntity(new UrlEncodedFormEntity(DeviceInfo));
             response = httpclient.execute(httppost);
 
