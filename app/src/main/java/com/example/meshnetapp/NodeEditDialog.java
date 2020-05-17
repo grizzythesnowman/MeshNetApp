@@ -30,7 +30,7 @@ public class NodeEditDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()) ;
         LayoutInflater inflater = getActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.layout_edit_node_dialog, null);
+        View view = inflater.inflate(R.layout.layout_node_edit_dialog, null);
 
         IPAddress = getArguments().getString("ip");
         DeviceName = getArguments().getString("name");
