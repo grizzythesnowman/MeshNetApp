@@ -89,7 +89,6 @@ public class NodeGetTask extends AsyncTask<String, String, String>{
                         device.Id = jsonObject.getString("nodeId");
                         device.Mac = jsonObject.getString("nodeMac");
                         device.Name = jsonObject.getString("nodeName");
-                        device.IP = jsonObject.getString("nodeIP");
 
                         Nodes.add(device);
                     }
@@ -107,17 +106,14 @@ public class NodeGetTask extends AsyncTask<String, String, String>{
                             TextView Id;
                             TextView Mac;
                             TextView Name;
-                            TextView IP;
 
                             Id = myActivity.findViewById(R.id.lblId);
                             Mac = myActivity.findViewById(R.id.lblMac);
                             Name = myActivity.findViewById(R.id.lblName);
-                            IP = myActivity.findViewById(R.id.lblIP);
 
                             Id.setText(Nodes.get(0).Id);
                             Mac.setText(Nodes.get(0).Mac);
                             Name.setText(Nodes.get(0).Name);
-                            IP.setText(Nodes.get(0).IP);
                             //Toast.makeText(myContext, "Clicked txtId: " + Nodes.get(0).txtId ,Toast.LENGTH_SHORT).show();
                             break;
                         case "path":
