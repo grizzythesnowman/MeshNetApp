@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity  {
     //FloatingActionButton fabAddDevice;
     ListView nodeList;
+    Button transmit;
     ArrayList<Node> Nodes;
 
     @Override
@@ -23,8 +25,8 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         nodeList = (ListView)findViewById(R.id.nodeList);
+        transmit = findViewById(R.id.transmit);
         Nodes = new ArrayList<>();
 
         updateList(MainActivity.this, MainActivity.this);
@@ -40,6 +42,12 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
+        transmit.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TransmitPrepareActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });
 
     }
 
