@@ -11,19 +11,20 @@ public class Node {
 
     public Node(){}
 
-    public Node(String IP, Context context, Activity activity, String purpose){
-        GetNodeInfo(IP, context, activity, purpose);
+    public Node(String id, String mac, String Name){}
+
+    public Node(String Id, Context context, Activity activity, String purpose){
+        GetNodeInfo(Id, context, activity, purpose);
     }
 
-    public void GetNodeInfo(String IP, Context context, Activity activity, String purpose){
-        new NodeGetTask(IP, context, activity, this, purpose).execute();
+    public void GetNodeInfo(String Id, Context context, Activity activity, String purpose){
+        new NodeGetTask(Id, context, activity, this, purpose).execute();
     }
 
     public void onGetNodeCompleted(Node d){
         Id = d.Id;
         Mac = d.Mac;
         Name = d.Name;
-        IP = d.IP;
     }
 
 }
