@@ -83,42 +83,45 @@ public class MainActivity extends AppCompatActivity  {
     public void onGetDeviceCompleted(ArrayList<Node> devices){
         Nodes = devices;
 
-        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
-        if( !wifiManager.isWifiEnabled()){
-            Toast.makeText(this, "Wifi is diabled", Toast.LENGTH_SHORT).show();
-            wifiManager.setWifiEnabled(true);
-        }
-        scanWifi();
+
+
+//        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+//
+//        if( !wifiManager.isWifiEnabled()){
+//            Toast.makeText(this, "Wifi is diabled", Toast.LENGTH_SHORT).show();
+//            wifiManager.setWifiEnabled(true);
+//        }
+//        scanWifi();
     }
 
-    public void scanWifi(){
-        registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
-        wifiManager.startScan();
-    }
-
-    BroadcastReceiver wifiReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            scanResults = wifiManager.getScanResults();
-            unregisterReceiver(this);
-            for(ScanResult scanResult : scanResults){
-                for(int i = 0; i < Nodes.size(); i++){
-                    if(Nodes.get(i).Mac.equals(scanResult.BSSID)){
-                        Nodes.get(i).isOnline = true;
-                    }
-                }
-                Log.d("Wifi Scan","Found: " + scanResult.SSID + " Mac Adress: " + scanResult.BSSID);
-            }
-
-//            for(int i = 0; i < Nodes.size(); i++){
-//                if(Nodes.get(i).isOnline){
-//                    showToast(Nodes.get(i).Name + " is online");
+//    public void scanWifi(){
+//        registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+//        wifiManager.startScan();
+//    }
+//
+//    BroadcastReceiver wifiReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            scanResults = wifiManager.getScanResults();
+//            unregisterReceiver(this);
+//            for(ScanResult scanResult : scanResults){
+//                for(int i = 0; i < Nodes.size(); i++){
+//                    if(Nodes.get(i).Mac.equals(scanResult.BSSID)){
+//                        Nodes.get(i).isOnline = true;
+//                    }
 //                }
-//                else showToast(Nodes.get(i).Name + " is offline");
+//                Log.d("Wifi Scan","Found: " + scanResult.SSID + " Mac Adress: " + scanResult.BSSID);
 //            }
-        }
-    };
+//
+////            for(int i = 0; i < Nodes.size(); i++){
+////                if(Nodes.get(i).isOnline){
+////                    showToast(Nodes.get(i).Name + " is online");
+////                }
+////                else showToast(Nodes.get(i).Name + " is offline");
+////            }
+//        }
+//    };
 
     public void showToast(String message){
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
