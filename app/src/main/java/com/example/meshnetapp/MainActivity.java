@@ -3,8 +3,13 @@ package com.example.meshnetapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,12 +18,16 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity  {
     //FloatingActionButton fabAddDevice;
     ListView nodeList;
     Button transmit;
     ArrayList<Node> Nodes;
+
+    WifiManager wifiManager;
+    List<ScanResult> scanResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +81,39 @@ public class MainActivity extends AppCompatActivity  {
 
     public void onGetDeviceCompleted(ArrayList<Node> devices){
         Nodes = devices;
+
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+        if( !wifiManager.isWifiEnabled()){
+            Toast.makeText(this, "Wifi is diabled", Toast.LENGTH_SHORT).show();
+            wifiManager.setWifiEnabled(true);
+        }
+        scanWifi();
+    }
+
+    public void scanWifi(){
+        registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
+        wifiManager.startScan();
+    }
+
+    BroadcastReceiver wifiReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            scanResults = wifiManager.getScanResults();
+            unregisterReceiver(this);
+            for(ScanResult scanResult : scanResults){
+                for(int i = 0; i < Nodes.size(); i++){
+                    if(Nodes.get(i).Mac.equals(scanResult.BSSID)){
+                        showToast("found " + Nodes.get(i).Name + " online in network");
+                    }
+                    else showToast(Nodes.get(i).Name + " not online in network");
+                }
+            }
+        }
+    };
+
+    public void showToast(String message){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 //    @Override
