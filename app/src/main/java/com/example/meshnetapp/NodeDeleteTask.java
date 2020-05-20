@@ -60,7 +60,7 @@ public class NodeDeleteTask extends AsyncTask<String, String, String>{
 
         try {
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost("http://192.168.2.6/MeshNetWebService/NodeDelete.php");
+            httppost = new HttpPost("http://192.168.2.8/MeshNetWebService/NodeDelete.php");
             httppost.setEntity(new UrlEncodedFormEntity(DeviceInfo));
             response = httpclient.execute(httppost);
 
