@@ -7,7 +7,9 @@ public class Node {
     public String Id;
     public String Mac;
     public String Name;
+    public boolean isOnline;
     public String IP;
+    public String Signal;
 
     public Node(){}
 
