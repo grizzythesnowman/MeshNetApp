@@ -83,8 +83,7 @@ public class MainActivity extends AppCompatActivity  {
     public void onGetDeviceCompleted(ArrayList<Node> devices){
         Nodes = devices;
 
-
-
+        new NetworkScanTask(MainActivity.this).execute();
 
 //        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 //
