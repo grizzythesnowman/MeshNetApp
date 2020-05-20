@@ -11,6 +11,7 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -104,11 +105,18 @@ public class MainActivity extends AppCompatActivity  {
             for(ScanResult scanResult : scanResults){
                 for(int i = 0; i < Nodes.size(); i++){
                     if(Nodes.get(i).Mac.equals(scanResult.BSSID)){
-                        showToast("found " + Nodes.get(i).Name + " online in network");
+                        Nodes.get(i).isOnline = true;
                     }
-                    else showToast(Nodes.get(i).Name + " not online in network");
                 }
+                Log.d("Wifi Scan","Found: " + scanResult.SSID + " Mac Adress: " + scanResult.BSSID);
             }
+
+//            for(int i = 0; i < Nodes.size(); i++){
+//                if(Nodes.get(i).isOnline){
+//                    showToast(Nodes.get(i).Name + " is online");
+//                }
+//                else showToast(Nodes.get(i).Name + " is offline");
+//            }
         }
     };
 

@@ -78,19 +78,22 @@ public class NodeGetTask extends AsyncTask<String, String, String>{
                 try {
                     jsonArray = new JSONArray(JSONResult);
                     JSONObject jsonObject;
-                    Node device;
+                    Node node;
                     Nodes = new ArrayList<>();
 
                     for (int i = 0; i < jsonArray.length(); i++) {
 
-                        device = new Node();
+                        node = new Node();
 
                         jsonObject = jsonArray.getJSONObject(i);
-                        device.Id = jsonObject.getString("nodeId");
-                        device.Mac = jsonObject.getString("nodeMac");
-                        device.Name = jsonObject.getString("nodeName");
+                        node.Id = jsonObject.getString("nodeId");
+                        node.Mac = jsonObject.getString("nodeMac");
+                        node.Name = jsonObject.getString("nodeName");
+                        node.isOnline = false;
+                        node.IP = "";
+                        node.Signal = "";
 
-                        Nodes.add(device);
+                        Nodes.add(node);
                     }
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block

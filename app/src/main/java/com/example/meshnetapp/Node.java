@@ -17,6 +17,9 @@ public class Node {
         Id = id;
         Mac = mac;
         Name = name;
+        isOnline = false;
+        IP = "";
+        Signal = "";
     }
 
     public Node(String Id, Context context, Activity activity, String purpose){
@@ -31,6 +34,9 @@ public class Node {
         Id = d.Id;
         Mac = d.Mac;
         Name = d.Name;
+        isOnline = false;
+        IP = d.IP;
+        Signal = d.Signal;
     }
 
 }
