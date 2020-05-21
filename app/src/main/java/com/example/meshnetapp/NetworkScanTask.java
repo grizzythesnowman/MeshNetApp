@@ -33,99 +33,60 @@ class NetworkScanTask extends AsyncTask<Void, Void, Void> {
 
         BufferedReader bufferedReader = null;
 
+        String ip = "";
+        String mac = "dc:4f:22:60:84:fa";
+
         try {
+
             bufferedReader = new BufferedReader(new FileReader("/proc/net/arp"));
 
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] splitted = line.split(" +");
                 if (splitted != null && splitted.length >= 4) {
-                    String ip = splitted[0];
-                    String mac = splitted[3];
-                    if (mac.matches("dc:4f:22:60:84:fa".toLowerCase())) {
+                    String foundIp = splitted[0];
+                    String foundMac = splitted[3];
+                    if (foundMac.matches(mac.toLowerCase())) {
+
+                        Context context = mContextRef.get();
+
+                        if (context != null) {
+
+                            ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+                            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                            WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+
+                            WifiInfo connectionInfo = wm.getConnectionInfo();
+                            int ipAddress = connectionInfo.getIpAddress();
+                            String ipString = Formatter.formatIpAddress(ipAddress);
+
+                            Log.d(TAG, "activeNetwork: " + String.valueOf(activeNetwork));
+                            Log.d(TAG, "ipString: " + String.valueOf(ipString));
+
+                            String prefix = ipString.substring(0, ipString.lastIndexOf(".") + 1);
+                            Log.d(TAG, "prefix: " + prefix);
+
+                            InetAddress address = InetAddress.getByName(foundIp);
+                            boolean reachable = address.isReachable(1000);
+                            String hostName = address.getCanonicalHostName();
+
+                            if (reachable){
+                                Log.i(TAG, "Host: " + String.valueOf(hostName) + "(" + String.valueOf(foundIp) + ") is reachable!");
+                            }
+                            else Log.i(TAG, "Host: " + String.valueOf(hostName) + "(" + String.valueOf(foundIp) + ") is not reachable...");
+
+                        }
+
                         Log.i(TAG, "IP Address for " + mac + " has been found. ("+ip+")");
-//                        Node thisNode = new Node(ip, mac);
-//                        publishProgress(thisNode);
                     }
                 }
             }
 
+
+
         } catch(Exception e){
             Log.e("MyClass", "Exception reading the arp table.", e);
         }
-
-//        try {
-//            Context context = mContextRef.get();
-//
-//            if (context != null) {
-//
-//                ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-//                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-//                WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-//
-//                WifiInfo connectionInfo = wm.getConnectionInfo();
-//                int ipAddress = connectionInfo.getIpAddress();
-//                String ipString = Formatter.formatIpAddress(ipAddress);
-//
-//
-//                Log.d(TAG, "activeNetwork: " + String.valueOf(activeNetwork));
-//                Log.d(TAG, "ipString: " + String.valueOf(ipString));
-//
-//                String prefix = ipString.substring(0, ipString.lastIndexOf(".") + 1);
-//                Log.d(TAG, "prefix: " + prefix);
-//
-//                for (int i = 0; i < 255; i++) {
-//                    String testIp = prefix + String.valueOf(i);
-//
-//                    InetAddress address = InetAddress.getByName(testIp);
-//                    boolean reachable = address.isReachable(1000);
-//                    String hostName = address.getCanonicalHostName();
-//
-//                    if (reachable){
-//                        Log.i(TAG, "Host: " + String.valueOf(hostName) + "(" + String.valueOf(testIp) + ") is reachable!");
-//
-//
-////                        NetworkInterface ni =  NetworkInterface.getByInetAddress(address);
-////
-////                        int retryCounter = 0;
-////                        while(ni == null && retryCounter < 30){
-////                            Log.i(TAG, "NetworkInterface for " + String.valueOf(hostName) + " failed... Retrying...");
-////
-////                            ni =  NetworkInterface.getByInetAddress(address);
-////
-////                            retryCounter++;
-////                        }
-////
-////                        if (ni != null) {
-////                            byte[] mac = ni.getHardwareAddress();
-////
-////                            if (mac != null) {
-////                                /*
-////                                 * Extract each array of mac address and convert it
-////                                 * to hexadecimal with the following format
-////                                 * 08-00-27-DC-4A-9E.
-////                                 */
-////                                for (int j = 0; j < mac.length; j++) {
-////                                    Log.i(TAG, "Address for " + String.valueOf(hostName) + " has been found.");
-//////                                    System.out.format("%02X%s",
-//////                                            mac[j], (j < mac.length - 1) ? "-" : "");
-////                                }
-////                            } else {
-////                                Log.i(TAG, "Address for " + String.valueOf(hostName) + " doesn't exist or is not accessible.");
-////                            }
-////                        }
-////                        else {
-////                            Log.i(TAG, "NetworkInterface for " + String.valueOf(hostName) + " failed.");
-////                        }
-//                    }
-//                    else Log.i(TAG, "Host: " + String.valueOf(hostName) + "(" + String.valueOf(testIp) + ") is not reachable...");
-//
-//                }
-//
-//            }
-//        } catch (Throwable t) {
-//            Log.e(TAG, "Well that's not good.", t);
-//        }
 
         return null;
     }
