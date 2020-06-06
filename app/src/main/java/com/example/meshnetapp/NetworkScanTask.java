@@ -82,8 +82,6 @@ class NetworkScanTask extends AsyncTask<Void, Void, Void> {
                 }
             }
 
-
-
         } catch(Exception e){
             Log.e("MyClass", "Exception reading the arp table.", e);
         }
