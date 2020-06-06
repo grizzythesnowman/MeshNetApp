@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "653282470112",
+    "firebase_url": "https://meshnet-35f01.firebaseio.com",
+    "project_id": "meshnet-35f01",
+    "storage_bucket": "meshnet-35f01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:653282470112:android:dcb72ede3291cc15218885",
+        "android_client_info": {
+          "package_name": "com.example.meshnetapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "653282470112-7972ii27me5ttn8nc4iij9eo10n9jqu5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meshnetapp",
+            "certificate_hash": "0ffdff62bfcfb692fb16f874412996251b269393"
+          }
+        },
+        {
+          "client_id": "653282470112-2bbrcri4rbc1o2cku2eqkgr5lcacuc88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfWl0rRdDsm9SD2y0rxQ0ksfRnNxxwKM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "653282470112-2bbrcri4rbc1o2cku2eqkgr5lcacuc88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
