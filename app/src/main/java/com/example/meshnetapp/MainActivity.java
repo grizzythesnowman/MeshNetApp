@@ -18,6 +18,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +32,10 @@ public class MainActivity extends AppCompatActivity  {
 
     WifiManager wifiManager;
     List<ScanResult> scanResults;
+
+    DatabaseReference refRoot;
+    DatabaseReference refDevices;
+    DatabaseReference refPayloads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,10 @@ public class MainActivity extends AppCompatActivity  {
                 startActivityForResult(intent,1);
             }
         });
+
+        refRoot = FirebaseDatabase.getInstance().getReference();
+        refDevices = refRoot.child("Devices");
+        refPayloads = refRoot.child("Payloads");
 
     }
 
