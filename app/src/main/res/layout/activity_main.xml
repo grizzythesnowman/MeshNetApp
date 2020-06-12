@@ -61,6 +61,17 @@
             android:paddingLeft="25dp"
             android:textAllCaps="false" />
 
+        <Button
+            android:id="@+id/onewaydelay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="One Way Delay"
+            android:textAllCaps="false"
+            android:textSize="18dp" />
+
     </LinearLayout>
 
 </LinearLayout>
