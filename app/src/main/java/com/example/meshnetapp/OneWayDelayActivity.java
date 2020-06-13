@@ -49,12 +49,8 @@ public class OneWayDelayActivity extends AppCompatActivity {
     public void openDataRate()
     {
         Intent intent = new Intent(this, DataRateActivity.class);
-        intent.putExtra("t0", DataRateActivity.class);
-        intent.putExtra("t1", DataRateActivity.class);
-        intent.putExtra("t2", DataRateActivity.class);
-        intent.putExtra("t3", DataRateActivity.class);
-        intent.putExtra("senderName", DataRateActivity.class);
-        intent.putExtra("rec", DataRateActivity.class);
+
+
 
         startActivity(intent);
     }
