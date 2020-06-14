@@ -13,7 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class OneWayDelayActivity extends AppCompatActivity {
     Button btn;
-    EditText senderName, receiver;
+    EditText senderName, receiverName;
     DatabaseReference reff;
     OneWayDelay onewaydelay;
     @Override
@@ -21,18 +21,18 @@ public class OneWayDelayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_way_delay);
         senderName = (EditText)findViewById(R.id.editTextTextPersonName);
-        receiver = (EditText)findViewById(R.id.editTextTextPersonName2);
+        receiverName = (EditText)findViewById(R.id.editTextTextPersonName2);
         btn = findViewById(R.id.button2);
         onewaydelay= new OneWayDelay();
         reff = FirebaseDatabase.getInstance().getReference().child("OneWayDelay");
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Float t0 = Float.parseFloat("12.232");
-                Float t1 = Float.parseFloat("134.232");
-                Float t2 = Float.parseFloat("112.232");
-                Float t3 = Float.parseFloat("132.232");
-                onewaydelay.setReceiver(receiver.getText().toString().trim());
+                Float t0 = Float.parseFloat("2904.148");
+                Float t1 = Float.parseFloat("2903.4");
+                Float t2 = Float.parseFloat("2903.404");
+                Float t3 = Float.parseFloat("2908.344");
+                onewaydelay.setReceiver(receiverName.getText().toString().trim());
                 onewaydelay.setSenderName(senderName.getText().toString().trim());
                 onewaydelay.setT0(t0);
                 onewaydelay.setT1(t1);
@@ -49,8 +49,6 @@ public class OneWayDelayActivity extends AppCompatActivity {
     public void openDataRate()
     {
         Intent intent = new Intent(this, DataRateActivity.class);
-
-
 
         startActivity(intent);
     }

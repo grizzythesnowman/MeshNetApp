@@ -44,21 +44,18 @@ public class DataRateActivity extends AppCompatActivity {
 
                     public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
 
-
                         String senderName = dataSnapshot.child("senderName").getValue().toString();
-                        String receiver = dataSnapshot.child("receiver").getValue().toString();
+                        String receiverName = dataSnapshot.child("receiverName").getValue().toString();
                         String t0 = dataSnapshot.child("t0").getValue().toString();
                         String t1 = dataSnapshot.child("t1").getValue().toString();
                         String t2 = dataSnapshot.child("t2").getValue().toString();
                         String t3 = dataSnapshot.child("t3").getValue().toString();
                         senders.setText(senderName);
-                        recievers.setText(receiver);
-
+                        recievers.setText(receiverName);
                         tzero.setText(t0);
                         tone.setText(t1);
                         ttwo.setText(t2);
                         tthree.setText(t3);
-                        Toast.makeText(DataRateActivity.this, senderName, Toast.LENGTH_SHORT).show();
                         float ft0 = Float.parseFloat(t0);
                         float ft1 = Float.parseFloat(t1);
                         float ft2 = Float.parseFloat(t2);

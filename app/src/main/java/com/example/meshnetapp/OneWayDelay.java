@@ -2,7 +2,7 @@ package com.example.meshnetapp;
 
 public class OneWayDelay {
     private String senderName;
-    private String receiver;
+    private String receiverName;
     private Float t0;
     private Float t1;
     private Float t2;
@@ -17,12 +17,12 @@ public class OneWayDelay {
         this.senderName = senderName;
     }
 
-    public String getReceiver() {
-        return receiver;
+    public String getReceiverName() {
+        return receiverName;
     }
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
+    public void setReceiver(String receiverName) {
+        this.receiverName = receiverName;
     }
 
     public Float getT0() {
