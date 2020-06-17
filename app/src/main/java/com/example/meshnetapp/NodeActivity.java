@@ -13,6 +13,9 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseListOptions;
+import com.google.firebase.database.DatabaseReference;
+
 public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener, NodeEditDialog.EditDeviceDialogListener {
     Node node;
     TextView lblId;
@@ -36,7 +39,6 @@ public class NodeActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         btnDelete = findViewById(R.id.deleteNode);
 
         node = new Node(getIntent().getStringExtra("Id"), NodeActivity.this, NodeActivity.this, "info");
-
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
