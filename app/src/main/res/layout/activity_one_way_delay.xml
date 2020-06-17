@@ -41,6 +41,15 @@
             android:ems="10"
             android:inputType="textPersonName" />
 
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="155dp"
+            android:layout_y="277dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
@@ -49,5 +58,13 @@
             android:layout_y="242dp"
             android:text="Receiver Name:" />
 
-    </AbsoluteLayout>
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_x="86dp"
+            android:layout_y="295dp"
+            android:text="Message:" />
+
+</AbsoluteLayout>
 

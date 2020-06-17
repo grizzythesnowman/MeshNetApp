@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class OneWayDelayActivity extends AppCompatActivity {
     Button btn;
-    EditText senderName, receiver;
+    EditText senderName, receiver, message;
     DatabaseReference reff;
 
     @Override
@@ -28,6 +29,7 @@ public class OneWayDelayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_one_way_delay);
         senderName = (EditText)findViewById(R.id.editTextTextPersonName);
         receiver = (EditText)findViewById(R.id.editTextTextPersonName2);
+        message = (EditText)findViewById(R.id.editTextTextPersonName3);
         btn = findViewById(R.id.button2);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +46,7 @@ public class OneWayDelayActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DataRateActivity.class);
         intent.putExtra("receiverName", receiver.getText().toString().trim());
         intent.putExtra("senderName", senderName.getText().toString().trim());
+        intent.putExtra("message", message.getText().toString().trim());
         startActivity(intent);
     }
 

@@ -3,6 +3,8 @@ package com.example.meshnetapp;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +20,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DataRateActivity extends AppCompatActivity {
 
-    TextView senders,recievers, tzero, tone,ttwo,tthree,txtonewaydelay;
+    Button btn;
+    TextView senders,recievers, messages, tzero, tone,ttwo,tthree,txtonewaydelay;
     DatabaseReference reff;
     DatabaseReference delayRef;
     OneWayDelay onewaydelay;
@@ -26,14 +29,17 @@ public class DataRateActivity extends AppCompatActivity {
     String delayId;
     String receiverName;
     String senderName;
+    String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_rate);
         Toast.makeText(DataRateActivity.this, "Database succesfully Connected", Toast.LENGTH_SHORT).show();
+        btn  = (Button)findViewById(R.id.view);
         senders = (TextView)findViewById(R.id.textView8);
         recievers = (TextView)findViewById(R.id.textView9);
+        messages = (TextView)findViewById(R.id.textView19);
         tzero = (TextView)findViewById(R.id.textView10);
         tone = (TextView)findViewById(R.id.textView11);
         ttwo = (TextView)findViewById(R.id.textView12);
@@ -42,6 +48,8 @@ public class DataRateActivity extends AppCompatActivity {
 
         senderName = getIntent().getStringExtra("senderName");
         receiverName = getIntent().getStringExtra("receiverName");
+        message = getIntent().getStringExtra("message");
+
 
         reff = FirebaseDatabase.getInstance().getReference("OneWayDelay");
 
@@ -53,6 +61,7 @@ public class DataRateActivity extends AppCompatActivity {
         onewaydelay= new OneWayDelay();
         onewaydelay.setReceiverName(senderName);
         onewaydelay.setSenderName(receiverName);
+        onewaydelay.setMessage(message);
         onewaydelay.setT0(t0);
         onewaydelay.setT1(t1);
         onewaydelay.setT2(t2);
@@ -67,13 +76,14 @@ public class DataRateActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String senderName = dataSnapshot.child("senderName").getValue().toString();
                 String receiver = dataSnapshot.child("receiverName").getValue().toString();
+                String message = dataSnapshot.child("message").getValue().toString();
                 String t0 = dataSnapshot.child("t0").getValue().toString();
                 String t1 = dataSnapshot.child("t1").getValue().toString();
                 String t2 = dataSnapshot.child("t2").getValue().toString();
                 String t3 = dataSnapshot.child("t3").getValue().toString();
                 senders.setText(senderName);
                 recievers.setText(receiver);
-
+                messages.setText(message);
                 tzero.setText(t0);
                 tone.setText(t1);
                 ttwo.setText(t2);
@@ -92,6 +102,13 @@ public class DataRateActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DataRateActivity.this, ViewDelays.class);
+                startActivity(intent);
             }
         });
 
