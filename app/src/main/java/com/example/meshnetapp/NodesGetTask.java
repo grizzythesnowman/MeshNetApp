@@ -121,7 +121,7 @@ public class NodesGetTask extends AsyncTask<String, String, String>{
                         case "list":
                             ListView devicelist;
 
-                            devicelist = myActivity.findViewById(R.id.nodeList);
+                            //devicelist = myActivity.findViewById(R.id.nodeList);
 
                             LinkedHashMap<String, String> ListFormat = new LinkedHashMap<>();
                             //ArrayList<String> Label = new ArrayList<>();
@@ -149,7 +149,7 @@ public class NodesGetTask extends AsyncTask<String, String, String>{
                                 listitems.add(resultsMap);
                             }
 
-                            devicelist.setAdapter(adapter);
+                            //devicelist.setAdapter(adapter);
                             break;
                     }
 
