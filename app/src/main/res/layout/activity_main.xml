@@ -15,6 +15,17 @@
         android:background="@drawable/background">
 
         <Button
+            android:id="@+id/viewdevices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:text="View Devices"
+            android:textAllCaps="false"
+            android:textSize="18dp" />
+
+        <Button
             android:id="@+id/transmit"
             android:layout_width="221dp"
             android:layout_height="55dp"

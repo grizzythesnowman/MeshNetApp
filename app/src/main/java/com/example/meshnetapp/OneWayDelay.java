@@ -3,12 +3,31 @@ package com.example.meshnetapp;
 public class OneWayDelay {
     private String senderName;
     private String receiverName;
+    private String message;
     private Float t0;
     private Float t1;
     private Float t2;
     private Float t3;
     public OneWayDelay() {
     }
+    public OneWayDelay(String senderName, String receiverName, String message, Float t0, Float t1, Float t2, Float t3) {
+        this.senderName = senderName;
+        this.receiverName = receiverName;
+        this.message = message;
+        this.t0 = t0;
+        this.t1 = t1;
+        this.t2 = t2;
+        this.t3 = t3;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public String getSenderName() {
         return senderName;
     }
