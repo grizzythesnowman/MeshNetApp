@@ -53,7 +53,7 @@ public class NodesGetTask extends AsyncTask<String, String, String>{
     }
 
     protected void onPostExecute(String Result){
-        mainActivity.onGetDeviceCompleted(Nodes);
+        //mainActivity.onGetDeviceCompleted(Nodes);
     }
 
     @Override
