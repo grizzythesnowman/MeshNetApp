@@ -38,10 +38,10 @@ public class ViewDelays extends AppCompatActivity {
                     holder.textViewSender.setText(model.getSenderName());
                     holder.textViewReceiver.setText(model.getReceiverName());
                     holder.textViewMessage.setText(model.getMessage());
-                    holder.textViewt0.setText(model.getT0().toString());
-                    holder.textViewt1.setText(model.getT1().toString());
-                    holder.textViewt2.setText(model.getT2().toString());
-                    holder.textViewt3.setText(model.getT3().toString());
+                    holder.textViewt0.setText(model.getT0().toString().trim());
+                    holder.textViewt1.setText(model.getT1().toString().trim());
+                    holder.textViewt2.setText(model.getT2().toString().trim());
+                    holder.textViewt3.setText(model.getT3().toString().trim());
         }
 
             @NonNull

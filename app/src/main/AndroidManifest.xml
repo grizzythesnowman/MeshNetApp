@@ -17,8 +17,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewDelays"></activity>
-        <activity android:name=".DataRateActivity"></activity>
+        <activity android:name=".ViewDevices"></activity>
+        <activity android:name=".ViewDelays" />
+        <activity android:name=".DataRateActivity" />
         <activity android:name=".OneWayDelayActivity" />
         <activity android:name=".TransmitResultActivity" />
         <activity android:name=".TransmitPrepareActivity" />
