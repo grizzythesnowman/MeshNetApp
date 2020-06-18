@@ -40,20 +40,16 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        refRoot = FirebaseDatabase.getInstance().getReference();
-        refDevices = refRoot.child("Devices");
-        refPayloads = refRoot.child("Payloads");
         setContentView(R.layout.activity_main);
 
-        nodeList = (ListView)findViewById(R.id.nodeList);
+        //nodeList = (ListView)findViewById(R.id.nodeList);
         transmit = findViewById(R.id.transmit);
         onewaydelay = findViewById(R.id.onewaydelay);
-        Nodes = new ArrayList<>();
+        //Nodes = new ArrayList<>();
 
-        updateList(MainActivity.this, MainActivity.this);
+        //updateList(MainActivity.this, MainActivity.this);
 
-        nodeList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+        /*nodeList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l){
                 //Toast.makeText(MainActivity.this, "Clicked txtId: " + Nodes.get(i).txtId ,Toast.LENGTH_SHORT).show();
@@ -62,7 +58,7 @@ public class MainActivity extends AppCompatActivity  {
                 intent.putExtra("Id", Id);
                 startActivityForResult(intent,1);
             }
-        });
+        });*/
 
         transmit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -74,13 +70,23 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, OneWayDelayActivity.class);
+                intent.putExtra("t0", DataRateActivity.class);
+                intent.putExtra("t1", DataRateActivity.class);
+                intent.putExtra("t2", DataRateActivity.class);
+                intent.putExtra("t3", DataRateActivity.class);
+                intent.putExtra("senderName", DataRateActivity.class);
+                intent.putExtra("receiver", DataRateActivity.class);
                 startActivity(intent);
             }
         });
 
+        refRoot = FirebaseDatabase.getInstance().getReference();
+        refDevices = refRoot.child("Devices");
+        refPayloads = refRoot.child("Payloads");
+
     }
 
-    @Override
+    /*@Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
@@ -91,13 +97,13 @@ public class MainActivity extends AppCompatActivity  {
                 if (strEditText.equals("Updated")) updateList(MainActivity.this, MainActivity.this);
             }
         }
-    }
-    public void updateList(Context myContext, Activity myActivity){
+    }*/
+ //   public void updateList(Context myContext, Activity myActivity){
 //        NodesGetTask getDevicesTask = new NodesGetTask(myContext, myActivity, this);
 //        getDevicesTask.execute();
 //        Nodes = getDevicesTask.Nodes;
-        new NodesGetTask(myContext, myActivity, this, "list").execute();
-    }
+//        new NodesGetTask(myContext, myActivity, this, "list").execute();
+//    }
 
     public void onGetDeviceCompleted(ArrayList<Node> devices){
         Nodes = devices;
