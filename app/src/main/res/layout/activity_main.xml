@@ -16,55 +16,55 @@
 
         <Button
             android:id="@+id/viewdevices"
-            android:layout_width="195dp"
-            android:layout_height="55dp"
+            android:layout_width="238dp"
+            android:layout_height="49dp"
             android:layout_gravity="center"
             android:background="@drawable/button"
             android:fontFamily="@font/medium"
             android:paddingLeft="0dp"
-            android:paddingRight="55dp"
-            android:text="View Devices"
+            android:paddingRight="42dp"
+            android:text="V I E W   A L L   D E V I C E S"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.619" />
+            app:layout_constraintVertical_bias="0.706" />
 
         <Button
             android:id="@+id/transmit"
-            android:layout_width="221dp"
-            android:layout_height="55dp"
+            android:layout_width="276dp"
+            android:layout_height="47dp"
+            android:background="@drawable/button"
             android:fontFamily="@font/medium"
             android:paddingLeft="0dp"
-            android:paddingRight="55dp"
-            android:text="Transmit Packets"
-            android:background="@drawable/button"
+            android:paddingRight="60dp"
+            android:text="T R A N S M I T   P A C K E T S"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.742" />
+            app:layout_constraintVertical_bias="0.812" />
 
         <Button
             android:id="@+id/onewaydelay"
-            android:layout_width="288dp"
-            android:layout_height="55dp"
+            android:layout_width="305dp"
+            android:layout_height="48dp"
+            android:background="@drawable/button"
             android:fontFamily="@font/medium"
             android:paddingLeft="0dp"
-            android:paddingRight="55dp"
-            android:text="Compute One Way Delay"
-            android:background="@drawable/button"
+            android:paddingRight="32dp"
+            android:text="C O M P U T E    O N E   W A Y   D E L A Y"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.859" />
+            app:layout_constraintVertical_bias="0.912" />
 
         <TextView
             android:id="@+id/textView17"

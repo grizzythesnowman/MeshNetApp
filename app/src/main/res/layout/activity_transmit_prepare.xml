@@ -1,99 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transmitPrepareActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/grey_bg"
     android:clickable="true"
     android:focusable="true"
-    tools:context=".TransmitPrepareActivity"
-    android:id="@+id/transmitPrepareActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="25dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Transmit Packet"
-            android:layout_marginLeft="20dp"
-            android:layout_marginBottom="25dp"
-            android:textSize="28dp" />
+    tools:context=".TransmitPrepareActivity">
 
 
-        <EditText
-            android:id="@+id/txtSender"
-            android:hint="Sender Node Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:nextFocusForward="@+id/txtReceiver"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:textSize="20dp" />
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="179dp"
+        android:layout_height="90dp"
+        android:fontFamily="@font/bold"
+        android:text="Transmit Packets"
+        android:textColor="@color/teal"
+        android:textSize="38dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.201" />
 
-        <EditText
-            android:id="@+id/txtReceiver"
-            android:hint="Receiver Node Name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:nextFocusForward="@+id/txtMessage"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:textSize="20dp" />
+    <EditText
+        android:id="@+id/txtMessage"
+        android:layout_width="297dp"
+        android:layout_height="135dp"
+        android:background="@drawable/input_field"
+        android:gravity="start"
+        android:hint="Say something.."
+        android:nextFocusForward="@+id/btnSend"
+        android:paddingLeft="14dp"
+        android:paddingTop="12dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="12dp"
+        android:singleLine="false"
+        android:textColor="@color/inputGrey"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619" />
 
-        <EditText
-            android:id="@+id/txtMessage"
-            android:hint="Message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nextFocusForward="@+id/btnSend"
-            android:singleLine="false"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:textSize="20dp" />
+    <EditText
+        android:id="@+id/txtSender"
+        android:layout_width="293dp"
+        android:layout_height="48dp"
+        android:background="@drawable/input_field"
+        android:hint="Enter name of Sender node"
+        android:nextFocusForward="@+id/txtReceiver"
+        android:paddingLeft="14dp"
+        android:paddingTop="14dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="14dp"
+        android:singleLine="true"
+        android:textColor="@color/inputGrey"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.357" />
+
+    <EditText
+        android:id="@+id/txtReceiver"
+        android:layout_width="293dp"
+        android:layout_height="48dp"
+        android:background="@drawable/input_field"
+        android:hint="Enter name of Receiver node"
+
+        android:nextFocusDown="@id/txtMessage"
+        android:paddingLeft="14dp"
+        android:paddingTop="14dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="14dp"
+        android:singleLine="true"
+        android:textColor="@color/inputGrey"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.449" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="121dp"
+        android:layout_height="45dp"
+        android:background="@drawable/button_round"
+        android:fontFamily="@font/medium"
+        android:text="S E N D"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="32dp"
+        android:layout_height="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069"
+        app:srcCompat="@drawable/back_btn" />
 
 
-
-    </LinearLayout>
-
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="2"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
-
-
-
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:textSize="18dp"
-            android:text="Back"
-            android:textAllCaps="false"
-            android:layout_marginRight="10dp"/>
-
-        <Button
-            android:id="@+id/btnSend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_marginLeft="10dp"
-            android:text="Send"
-            android:textAllCaps="false"
-            android:textSize="18dp" />
-
-    </GridLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
