@@ -7,12 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 public class TransmitPrepareActivity extends AppCompatActivity {
 
     Button btnSend;
     Button btnBack;
     EditText senderNode, receiverNode, message;
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class TransmitPrepareActivity extends AppCompatActivity {
         setContentView(R.layout.activity_transmit_prepare);
 
         btnSend = findViewById(R.id.btnSend);
+        backButton = findViewById(R.id.backButton);
         btnBack = findViewById(R.id.btnBack);
         senderNode = findViewById(R.id.txtSender);
         receiverNode = findViewById(R.id.txtReceiver);
@@ -35,7 +38,7 @@ public class TransmitPrepareActivity extends AppCompatActivity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
             }
