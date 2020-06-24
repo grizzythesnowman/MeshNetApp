@@ -12,7 +12,6 @@ import android.widget.ImageView;
 public class TransmitPrepareActivity extends AppCompatActivity {
 
     Button btnSend;
-    Button btnBack;
     EditText senderNode, receiverNode, message;
     ImageView backButton;
 
@@ -23,7 +22,6 @@ public class TransmitPrepareActivity extends AppCompatActivity {
 
         btnSend = findViewById(R.id.btnSend);
         backButton = findViewById(R.id.backButton);
-        btnBack = findViewById(R.id.btnBack);
         senderNode = findViewById(R.id.txtSender);
         receiverNode = findViewById(R.id.txtReceiver);
         message = findViewById(R.id.txtMessage);
