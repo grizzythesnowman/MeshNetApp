@@ -35,8 +35,10 @@ public class ViewDevices extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Devices,MyDeviceViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull MyDeviceViewHolder holder, int position, @NonNull Devices model) {
-                holder.textViewname.setText(model.getName());
-                holder.textViewmac.setText(model.getMac());
+                if(model.getConnected() == true) {
+                    holder.textViewname.setText(model.getName());
+                    holder.textViewmac.setText(model.getMac());
+                }
 
             }
 
