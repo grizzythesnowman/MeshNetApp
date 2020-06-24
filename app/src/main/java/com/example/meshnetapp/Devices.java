@@ -3,13 +3,23 @@ package com.example.meshnetapp;
 public class Devices {
     String Mac;
     String Name;
+    boolean Connected;
 
     public Devices() {
     }
 
-    public Devices(String mac, String name) {
+    public Devices(String mac, String name, boolean connected) {
         Mac = mac;
         Name = name;
+        Connected = connected;
+    }
+
+    public boolean getConnected() {
+        return Connected;
+    }
+
+    public void setConnected(boolean connected) {
+        Connected = connected;
     }
 
     public String getMac() {
