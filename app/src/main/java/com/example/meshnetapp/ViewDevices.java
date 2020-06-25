@@ -12,8 +12,11 @@ import android.view.ViewGroup;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ViewDevices extends AppCompatActivity {
     private FirebaseRecyclerOptions<Devices> options;
@@ -21,23 +24,41 @@ public class ViewDevices extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     DatabaseReference reff;
+    DatabaseReference connectionReff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_devices);
         reff = FirebaseDatabase.getInstance().getReference().child("Devices");
+        connectionReff = FirebaseDatabase.getInstance().getReference().child("Connection");
+
         recyclerView = (RecyclerView)findViewById(R.id.recyclerDevices);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        options = new FirebaseRecyclerOptions.Builder<Devices>().setQuery(reff,Devices.class).build();
+        options = new FirebaseRecyclerOptions.Builder<Devices>().setQuery(connectionReff,Devices.class).build();
         adapter = new FirebaseRecyclerAdapter<Devices,MyDeviceViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull MyDeviceViewHolder holder, int position, @NonNull Devices model) {
+            protected void onBindViewHolder(@NonNull final MyDeviceViewHolder holder, int position, @NonNull final Devices model) {
+
                 if(model.getConnected() == true) {
-                    holder.textViewname.setText(model.getName());
-                    holder.textViewmac.setText(model.getMac());
+                    DatabaseReference connRef = getRef(position);
+                    String Id = connRef.getKey();
+
+                    DatabaseReference deviceRef = reff.child(Id);
+                    deviceRef.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            holder.textViewname.setText(dataSnapshot.child("name").getValue().toString());
+                            holder.textViewmac.setText(dataSnapshot.child("mac").getValue().toString());
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                 }
 
             }
