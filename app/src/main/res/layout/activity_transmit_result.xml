@@ -17,6 +17,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/teal"
+            android:fontFamily="@font/bold"
             android:text="Result"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="25dp"
@@ -205,12 +207,16 @@
 
         <Button
             android:id="@+id/btnDone"
+            android:background="@drawable/button_round"
+            android:fontFamily="@font/medium"
+            android:text="DONE"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:text="Done"
-            android:textAllCaps="false"
-            android:textSize="18dp" />
+            android:layout_columnWeight="1"/>
+
 
     </GridLayout>
 
