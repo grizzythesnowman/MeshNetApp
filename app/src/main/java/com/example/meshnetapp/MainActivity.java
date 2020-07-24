@@ -27,7 +27,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity  {
     //FloatingActionButton fabAddDevice;
     ListView nodeList;
-    Button transmit, onewaydelay, devices;
+    Button transmit, onewaydelay, devices, simulate;
     ArrayList<Node> Nodes;
 
     WifiManager wifiManager;
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity  {
         transmit = findViewById(R.id.transmit);
         onewaydelay = findViewById(R.id.onewaydelay);
         devices = findViewById(R.id.viewdevices);
+        simulate = findViewById(R.id.btnSimulate);
         Nodes = new ArrayList<>();
 
         transmit.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +72,13 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ViewDevices.class);
+                startActivity(intent);
+            }
+        });
+        simulate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SimulateMesh.class);
                 startActivity(intent);
             }
         });

@@ -17,7 +17,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewDevices"></activity>
+        <activity android:name=".DeleteNode"></activity>
+        <activity android:name=".VirtualOneWayDelayResults" />
+        <activity android:name=".TransmitVirtualResults" />
+        <activity android:name=".VirtualOneWayDelay" />
+        <activity android:name=".TransmitVirtualNodes" />
+        <activity android:name=".AddVirtualNodes" />
+        <activity android:name=".SimulateMesh" />
+        <activity android:name=".ViewDevices" />
         <activity android:name=".ViewDelays" />
         <activity android:name=".DataRateActivity" />
         <activity android:name=".OneWayDelayActivity" />

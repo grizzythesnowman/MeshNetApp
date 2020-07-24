@@ -4,17 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:id="@+id/mainActivity">
-
+    tools:context=".SimulateMesh">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background">
+
+        >
         <Button
-            android:id="@+id/btnSimulate"
+            android:id="@+id/btnAddNodes"
             android:layout_width="215dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
@@ -22,7 +19,7 @@
             android:fontFamily="@font/medium"
             android:paddingLeft="0dp"
             android:paddingRight="32dp"
-            android:text="S I M U L A T E  M E S H         "
+            android:text="A D D   N O D E S               "
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -31,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.61" />
         <Button
-            android:id="@+id/viewdevices"
+            android:id="@+id/removeNodes"
             android:layout_width="238dp"
             android:layout_height="49dp"
             android:layout_gravity="center"
@@ -39,7 +36,7 @@
             android:fontFamily="@font/medium"
             android:paddingLeft="0dp"
             android:paddingRight="42dp"
-            android:text="V I E W   A L L   D E V I C E S"
+            android:text="R E M O V E   D E V I C E S"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -49,7 +46,7 @@
             app:layout_constraintVertical_bias="0.706" />
 
         <Button
-            android:id="@+id/transmit"
+            android:id="@+id/transmitSim"
             android:layout_width="276dp"
             android:layout_height="47dp"
             android:background="@drawable/button"
@@ -66,7 +63,7 @@
             app:layout_constraintVertical_bias="0.812" />
 
         <Button
-            android:id="@+id/onewaydelay"
+            android:id="@+id/onewaydelaySim"
             android:layout_width="305dp"
             android:layout_height="48dp"
             android:background="@drawable/button"
@@ -83,35 +80,19 @@
             app:layout_constraintVertical_bias="0.912" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bold"
-            android:text="Hello there!"
-            android:textColor="@color/headTeal"
-            android:textSize="38dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.053"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.17" />
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="172dp"
-            android:layout_height="23dp"
-            android:fontFamily="@font/thin"
-            android:text="Welcome to Meshnet."
+            android:text="Simulate a Network."
             android:textColor="@color/teal"
-            android:textSize="18sp"
+            android:textSize="36dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.046"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.223" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

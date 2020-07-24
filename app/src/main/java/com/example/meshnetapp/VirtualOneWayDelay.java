@@ -4,37 +4,29 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-public class OneWayDelayActivity extends AppCompatActivity {
+public class VirtualOneWayDelay extends AppCompatActivity {
     Button btn;
     EditText senderName, receiver, message;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one_way_delay);
-        senderName = (EditText)findViewById(R.id.editTextTextPersonName);
-        receiver = (EditText)findViewById(R.id.editTextTextPersonName2);
-        message = (EditText)findViewById(R.id.editTextTextPersonName3);
-        btn = findViewById(R.id.button2);
+        setContentView(R.layout.activity_virtual_one_way_delay);
+
+        senderName = findViewById(R.id.senderNamevirtual);
+        receiver = findViewById(R.id.virtualreceiver);
+        message = findViewById(R.id.messagevirtual);
+
+        btn = findViewById(R.id.btnsendvirtual);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-           openDataRate();
-
+                openDataRate();
             }
         });
 
@@ -47,5 +39,6 @@ public class OneWayDelayActivity extends AppCompatActivity {
         intent.putExtra("message", message.getText().toString().trim());
         startActivity(intent);
     }
+
 
 }
