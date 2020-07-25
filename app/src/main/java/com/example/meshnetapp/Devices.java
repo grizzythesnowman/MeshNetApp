@@ -37,4 +37,8 @@ public class Devices {
     public void setName(String name) {
         Name = name;
     }
+    public String toString()
+    {
+        return Name + " -  " + Mac;
+    }
 }

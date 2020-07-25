@@ -43,6 +43,7 @@ public class VirtualOneWayDelayResults extends AppCompatActivity {
         messages = (TextView)findViewById(R.id.txtViewMessage);
         tzero = (TextView)findViewById(R.id.txtViewT0);
         tone = (TextView)findViewById(R.id.txtViewT1);
+        ttwo = (TextView)findViewById(R.id.txtViewT2);
         tthree = (TextView)findViewById(R.id.txtViewT3);
         txtonewaydelay = (TextView)findViewById(R.id.txtViewOwd);
 
@@ -52,10 +53,10 @@ public class VirtualOneWayDelayResults extends AppCompatActivity {
 
         reff = FirebaseDatabase.getInstance().getReference("VirtualOneWayDelay");
 
-        Float t0 = Float.parseFloat(String.valueOf(myRandom.nextInt(100)));
-        Float t1 = Float.parseFloat(String.valueOf(myRandom.nextInt(100)));
-        Float t2 = Float.parseFloat(String.valueOf(myRandom.nextInt(100)));
-        Float t3 = Float.parseFloat(String.valueOf(myRandom.nextInt(100)));
+        Float t0 = Float.parseFloat(String.valueOf(myRandom.nextInt(10000)));
+        Float t1 = Float.parseFloat(String.valueOf(myRandom.nextInt(10000)));
+        Float t2 = Float.parseFloat(String.valueOf(myRandom.nextInt(10000)));
+        Float t3 = Float.parseFloat(String.valueOf(myRandom.nextInt(10000)));
 
         onewaydelay= new OneWayDelay();
         onewaydelay.setReceiverName(senderName);
@@ -103,6 +104,7 @@ public class VirtualOneWayDelayResults extends AppCompatActivity {
 
             }
         });
+
 
     }
 }

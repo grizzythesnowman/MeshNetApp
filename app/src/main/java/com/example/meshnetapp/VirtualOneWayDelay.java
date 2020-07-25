@@ -33,7 +33,7 @@ public class VirtualOneWayDelay extends AppCompatActivity {
     }
     public void openDataRate()
     {
-        Intent intent = new Intent(this, DataRateActivity.class);
+        Intent intent = new Intent(this, VirtualOneWayDelayResults.class);
         intent.putExtra("receiverName", receiver.getText().toString().trim());
         intent.putExtra("senderName", senderName.getText().toString().trim());
         intent.putExtra("message", message.getText().toString().trim());
