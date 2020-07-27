@@ -37,8 +37,13 @@ public class Devices {
     public void setName(String name) {
         Name = name;
     }
-    public String toString()
-    {
-        return Name + " -  " + Mac;
+
+    @Override
+    public String toString() {
+        return "Devices{" +
+                "Mac='" + Mac + '\'' +
+                ", Name='" + Name + '\'' +
+                ", Connected=" + Connected +
+                '}';
     }
 }
